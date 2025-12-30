@@ -1,5 +1,6 @@
 <div class="portfolio-page">
   <h1 class="portfolio-title">My Portfolio</h1>
+  <button class="add-button" (click)="openModal()">+ Dodaj pozycję</button>
 
   @if (positions$ | async; as positions) {
     <app-portfolio-position-list
@@ -10,5 +11,12 @@
     <div class="loading-placeholder">
       Ładowanie danych lub brak pozycji w portfelu...
     </div>
+  }
+
+  @if (isModalOpen){
+    <app-add-position-modal
+      (close)="closeModal()"
+      (submitPosition)="addPosition($event)">
+    </app-add-position-modal>
   }
 </div>

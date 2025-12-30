@@ -1,0 +1,14 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>Dodaj nową pozycję</h2>
+    <form (ngSubmit)="submit()">
+      <label>Symbol:<input [(ngModel)]="newPosition.symbol" name="symbol" required /></label>
+      <label>Quantity:<input type="number" [(ngModel)]="newPosition.quantity" name="quantity" required /></label>
+      <label>Average Price:<input type="number" [(ngModel)]="newPosition.averagePrice" name="averagePrice" required /></label>
+      <div class="modal-buttons">
+        <button type="submit">Dodaj</button>
+        <button type="button" (click)="close.emit()">Anuluj</button>
+      </div>
+    </form>
+  </div>
+</div>
