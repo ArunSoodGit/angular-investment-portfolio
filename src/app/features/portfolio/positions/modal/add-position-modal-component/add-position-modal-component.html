@@ -1,0 +1,40 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>Dodaj nową pozycję</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <label>
+        Symbol
+        <input formControlName="symbol"/>
+        @if (form.controls.symbol.touched && form.controls.symbol.invalid) {
+          <span class="error">Symbol jest wymagany</span>
+        }
+      </label>
+
+      <label>
+        Quantity
+        <input type="number" formControlName="quantity"/>
+        @if (form.controls.quantity.touched && form.controls.quantity.invalid) {
+          <span class="error">Ilość musi być większa od 0</span>
+        }
+      </label>
+
+      <label>
+        Average Price
+        <input type="number" formControlName="averagePrice"/>
+        @if (form.controls.averagePrice.touched && form.controls.averagePrice.invalid) {
+          <span class="error">Cena nie może być ujemna</span>
+        }
+      </label>
+
+      <div class="modal-buttons">
+        <button type="submit" [disabled]="form.invalid">
+          Dodaj
+        </button>
+        <button type="button" (click)="cancelForm()">
+          Anuluj
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>Dodaj nowy portfel</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        Nazwa portfela
+        <input formControlName="name"/>
+        @if (form.controls.name.touched && form.controls.name.invalid) {
+          <span class="error">Nazwa jest wymagana</span>
+        }
+      </label>
+
+      <label>
+        Waluta
+        <input formControlName="currency"/>
+        @if (form.controls.currency.touched && form.controls.currency.invalid) {
+          <span class="error"> Waluta musi mieć 3 wielkie litery, np. USD</span>
+        }
+      </label>
+
+
+      <div class="modal-buttons">
+        <button type="submit" [disabled]="form.invalid">
+          Dodaj
+        </button>
+        <button type="button" (click)="close.emit()">
+          Anuluj
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

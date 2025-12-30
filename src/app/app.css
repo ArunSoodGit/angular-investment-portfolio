@@ -1,6 +1,33 @@
-.app-content{
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.app-layout {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  padding: 20px;
+  width: 260px;
+  background-color: #2e3253;
+  color: white;
+}
+
+.app-content {
+  max-width: 1200px;
+  margin-left: 300px;
+  padding: 1.5rem;
+  overflow: auto;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* ukrywa sidebar */
+  }
+
+  .app-content {
+    margin-left: 0; /* content zajmuje całą szerokość */
+  }
 }

@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "car-managment": {
+    "portfolio-managment": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "car-managment:build:production"
+              "buildTarget": "portfolio-managment:build:production"
             },
             "development": {
-              "buildTarget": "car-managment:build:development"
+              "buildTarget": "portfolio-managment:build:development"
             }
           },
           "defaultConfiguration": "development"

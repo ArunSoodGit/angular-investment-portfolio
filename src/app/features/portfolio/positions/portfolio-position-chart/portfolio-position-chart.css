@@ -1,0 +1,12 @@
+/* Tytuł wykresu */
+.chart-title {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: black;
+}
+
+/* Opcjonalnie: gradient dla wykresu Chart.js */
+canvas {
+  border-radius: 12px;
+}

@@ -1,0 +1,18 @@
+<div class="header">Twoje portfele</div>
+
+<div class="portfolio-container">
+  @for (portfolio of portfolios$ | async; track portfolio.id) {
+    <app-portfolio-card-component
+      [portfolio]="portfolio"
+      (portfolioClicked)="onPortfolioSelected($event)">
+    </app-portfolio-card-component>
+  }
+  <button class="add_portfolio_btn" (click)="openModal()">+</button>
+</div>
+
+@if (isModalOpen()) {
+  <app-add-portfolio-modal-component
+    (close)="closeModal()"
+    (submitPortfolio)="addPortfolio($event)">
+  </app-add-portfolio-modal-component>
+}

@@ -1,0 +1,70 @@
+<div class="buttons">
+  <button class="button buy-button" (click)="openAddModal()">Nowa pozycja</button>
+</div>
+<table class="portfolio-table">
+  <thead>
+  <tr>
+    <th>Symbol</th>
+    <th>Wolumen</th>
+    <th>Średnia cena zakupu</th>
+    <th>Wartość zakupu</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (position of positions; track position.id) {
+      <tr class="position-row">
+        <td data-label="Symbol">
+          <span>{{ position.symbol }}  </span>
+        </td>
+        <td data-label="Wolumen">
+          <span>{{ position.quantity }}</span>
+        </td>
+        <td data-label="Średnia cena zakupu">
+          <span>{{ position.averagePrice | number:'1.2-2' }} <small>{{ position.currency }}</small>
+          </span>
+        </td>
+        <td data-label="Wartość zakupu">
+          <span>{{ position.averagePrice * position.quantity  | number:'1.2-2' }}
+            <small>{{ position.currency }}</small>
+          </span>
+        </td>
+        <td>
+          <button class="popup-toggle" (click)="togglePopup(position.id)">
+            <fa-icon [icon]="faEllipsisV"></fa-icon>
+          </button>
+          @if (popupOpen() === position.id) {
+            <div class="popup-menu">
+              <button (click)="editPosition(position)">
+                <fa-icon [icon]="faEdit"></fa-icon>
+                Edytuj
+              </button>
+              <button (click)="addTransaction(position)">
+                <fa-icon [icon]="faPlus"></fa-icon>
+                Dodaj
+              </button>
+              <button (click)="removePosition(position)">
+                <fa-icon [icon]="faMinus"></fa-icon>
+                Usuń
+              </button>
+            </div>
+          }
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+@if (isAddModalOpen()) {
+  <app-add-position-modal
+    (cancel)="closeAddModal()"
+    (positionSubmit)="addPosition($event)">
+  </app-add-position-modal>
+}
+
+@if (isEditModalOpen()) {
+  <app-edit-position-modal
+    [position]="selectedForEdit()!"
+    (cancel)="closeEditModal()"
+    (positionEdit)="editPosition($event)">
+  </app-edit-position-modal>
+}
