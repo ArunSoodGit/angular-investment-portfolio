@@ -1,0 +1,14 @@
+<div class="portfolio-page">
+  <h1 class="portfolio-title">My Portfolio</h1>
+
+  @if (positions$ | async; as positions) {
+    <app-portfolio-position-list
+      class="portfolio-list"
+      [positions]="positions">
+    </app-portfolio-position-list>
+  } @else {
+    <div class="loading-placeholder">
+      Ładowanie danych lub brak pozycji w portfelu...
+    </div>
+  }
+</div>
