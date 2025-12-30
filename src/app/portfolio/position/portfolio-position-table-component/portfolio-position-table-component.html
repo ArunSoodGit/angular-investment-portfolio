@@ -1,18 +1,21 @@
-<table class="portfolio-table">
-  <thead>
-  <tr>
-    <th>Symbol</th>
-    <th>Quantity</th>
-    <th>Average Price</th>
-  </tr>
-  </thead>
-  <tbody>
-    @for (position of positions; track position.id) {
-      <tr class="position-row">
-        <td>{{ position.symbol }}</td>
-        <td>{{ position.quantity }}</td>
-        <td>{{ position.averagePrice | number:'1.2-2' }}</td>
-      </tr>
-    }
-  </tbody>
-</table>
+  <table class="portfolio-table">
+    <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Ilość</th>
+      <th>Średnia cena zakupu</th>
+      <th>Wartość zakupu</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (position of positions; track position.id) {
+        <tr class="position-row">
+          <td><span>{{ position.symbol }}</span></td>
+          <td><span>{{ position.quantity }}</span></td>
+          <td><span>{{ position.averagePrice | number:'1.2-2' }} <small>{{ position.currency }}</small></span></td>
+          <td><span>{{ position.averagePrice * position.quantity  | number:'1.2-2' }}
+            <small>{{ position.currency }}</small></span></td>
+        </tr>
+      }
+    </tbody>
+  </table>

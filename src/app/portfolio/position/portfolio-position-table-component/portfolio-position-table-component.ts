@@ -3,7 +3,7 @@ import {Position} from '../model/Position';
 import {DecimalPipe} from '@angular/common';
 
 @Component({
-  selector: 'app-portfolio-position-list',
+  selector: 'app-portfolio-position-table',
   imports: [
     DecimalPipe,
   ],

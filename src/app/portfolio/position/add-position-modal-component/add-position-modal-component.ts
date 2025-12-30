@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './add-position-modal-component.css',
 })
 export class AddPositionModalComponent {
+
   @Output() close = new EventEmitter<void>();
   @Output() submitPosition = new EventEmitter<Position>();
 

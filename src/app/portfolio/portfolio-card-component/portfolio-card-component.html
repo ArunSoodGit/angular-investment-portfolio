@@ -1,0 +1,26 @@
+<div class="portfolio-card" (click)="openPortfolio()">
+  <div class="portfolio-card-header">
+    <h3 class="portfolio-name">{{ portfolio.name }}</h3>
+    <span class="portfolio-badge">{{ portfolio.currency }}</span>
+  </div>
+
+  <div class="portfolio-metrics">
+    <div class="metric">
+      <span class="metric-label">Wartość</span>
+      <span class="metric-value">
+        {{ portfolio.totalAmount | number:'1.2-2' }} {{portfolio.currency}}
+      </span>
+    </div>
+
+    <div
+      class="metric"
+      [class.positive]="portfolio.profit >= 0"
+      [class.negative]="portfolio.profit < 0"
+    >
+      <span class="metric-label">Zysk / strata</span>
+      <span class="metric-value">
+        {{ portfolio.profit | number:'1.2-2' }} {{portfolio.currency}}
+      </span>
+    </div>
+  </div>
+</div>

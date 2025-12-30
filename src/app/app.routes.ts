@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
+import {PortfolioListComponent} from './portfolio/portfolio-list-component/portfolio-list-component';
 import {PortfolioPageComponent} from './portfolio/portfolio-page-component/portfolio-page-component';
 
 export const routes: Routes = [
@@ -9,9 +10,14 @@ export const routes: Routes = [
   },
   {
     path: "portfolio",
-    component: PortfolioPageComponent,
-    title: "Portfel"
+    component: PortfolioListComponent,
+    title: "Portfel",
   },
+  {
+    path: "portfolio/:id",
+    component: PortfolioPageComponent
+  },
+
   {
     path: "**",
     redirectTo: "portfolio",

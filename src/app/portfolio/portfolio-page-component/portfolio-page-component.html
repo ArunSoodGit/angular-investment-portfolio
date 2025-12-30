@@ -1,19 +1,33 @@
 <div class="portfolio-page">
-  <h1 class="portfolio-title">My Portfolio</h1>
-  <button class="add-button" (click)="openModal()">+ Dodaj pozycję</button>
+  <div class="portfolio-header">
+    <h1 class="portfolio-title">My Portfolio</h1>
+  </div>
 
   @if (positions$ | async; as positions) {
-    <app-portfolio-position-list
-      class="portfolio-list"
-      [positions]="positions">
-    </app-portfolio-position-list>
+    <div class="card">
+      <div class="buttons">
+        <button class="button buy-button" (click)="openModal()">BUY</button>
+        <button class="button sell-button" (click)="openModal()">SELL</button>
+      </div>
+
+      <app-portfolio-position-table
+        class="portfolio-list"
+        [positions]="positions">
+      </app-portfolio-position-table>
+    </div>
+    <div class="card">
+      <app-portfolio-position-chart
+        class="portfolio-chart"
+        [positions]="positions">
+      </app-portfolio-position-chart>
+    </div>
   } @else {
     <div class="loading-placeholder">
       Ładowanie danych lub brak pozycji w portfelu...
     </div>
   }
 
-  @if (isModalOpen){
+  @if (isModalOpen) {
     <app-add-position-modal
       (close)="closeModal()"
       (submitPosition)="addPosition($event)">

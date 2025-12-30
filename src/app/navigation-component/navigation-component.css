@@ -1,0 +1,131 @@
+.nav {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+
+  background-color: #2e3253;
+  color: #f8fafc;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: Inter, sans-serif;
+}
+
+/* LOGO */
+.nav-left .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: default;
+}
+
+/* LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #cbd5f5;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ffffff;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* PROFILE */
+.nav-right {
+  position: relative;
+}
+
+.profile-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.profile-btn:hover .avatar {
+  transform: scale(1.1);
+}
+
+/* DROPDOWN */
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: #0f172a;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+  overflow: hidden;
+  min-width: 140px;
+  flex-direction: column;
+}
+
+.profile-dropdown a {
+  color: #ffffff;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s ease;
+}
+
+.profile-dropdown a:hover {
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.profile-btn:hover .profile-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* tu można dodać hamburger menu */
+  }
+}

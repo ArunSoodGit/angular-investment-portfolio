@@ -1,0 +1,9 @@
+<h1>Twoje portfele</h1>
+
+<div class="portfolio-grid">
+  @for (portfolio of portfolios$ | async; track portfolio.id) {
+    <app-portfolio-card-component
+      [portfolio]="portfolio">
+    </app-portfolio-card-component>
+  }
+</div>
