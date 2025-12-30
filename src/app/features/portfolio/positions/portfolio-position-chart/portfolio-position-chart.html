@@ -1,0 +1,8 @@
+<div class="portfolio-chart-card">
+  <h3 class="chart-title">Wartość pozycji</h3>
+  <canvas baseChart
+          [data]="{ labels: chartLabels, datasets: [{ data: chartData, backgroundColor: '#bfbfda' }] }"
+          [type]="chartType"
+          [options]="chartOptions">
+  </canvas>
+</div>

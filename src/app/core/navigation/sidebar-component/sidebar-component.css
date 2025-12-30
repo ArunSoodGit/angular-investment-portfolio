@@ -1,0 +1,34 @@
+/* Logo u góry */
+.sidebar-top .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  display: block;
+  text-align: center;
+}
+
+/* Linki menu */
+.sidebar-links {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.sidebar-links a {
+  color: #cbd5f5;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-links a:hover,
+.sidebar-links a.active {
+  background: rgba(56,189,248,0.2);
+  color: #ffffff;
+}

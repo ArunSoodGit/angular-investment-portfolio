@@ -1,0 +1,58 @@
+/* Ogólny navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem 1.5rem;
+  background-color: #ffffff; /* ciemny granat */
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+
+/* Kontener po prawej (input) */
+.navbar-right {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+/* Input wyszukiwania */
+.navbar-right input[type="text"] {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  color: #111827;
+}
+
+/* Efekt fokus na input */
+.navbar-right input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4); /* niebieski glow */
+  background-color: #ffffff;
+  border: 1px solid #3b82f6;
+
+}
+
+/* Placeholder lekko szary */
+.navbar-right input[type="text"]::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navbar-right input[type="text"] {
+    width: 120px;
+    font-size: 0.9rem;
+  }
+
+  .navbar-left .logo {
+    font-size: 1.2rem;
+  }
+}

@@ -1,9 +1,7 @@
-<main class="app-layout">
-  <header class="app-header">
-    <app-navigation-component></app-navigation-component>
-  </header>
-
-  <section class="app-content">
+<div class="app-layout">
+  <app-sidebar-component class="sidebar"></app-sidebar-component>
+  <main class="app-content">
+    <app-navbar-component></app-navbar-component>
     <router-outlet></router-outlet>
-  </section>
-</main>
+  </main>
+</div>
