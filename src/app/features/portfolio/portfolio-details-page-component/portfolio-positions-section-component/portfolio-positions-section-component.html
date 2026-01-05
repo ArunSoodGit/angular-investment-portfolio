@@ -1,0 +1,16 @@
+  <div class="card">
+    <app-portfolio-position-table
+      [positions]="positions"
+      (addPositionEvent)="addPositionEvent.emit($event)"
+      (editPositionEvent)="editPositionEvent.emit($event)"
+      (addTransactionEvent)="handleAddTransaction($event)"
+      (removePositionEvent)="handleRemovePosition($event)">
+    </app-portfolio-position-table>
+  </div>
+
+  <div class="card">
+    <app-portfolio-position-chart
+      [positions]="positions">
+    </app-portfolio-position-chart>
+  </div>
+

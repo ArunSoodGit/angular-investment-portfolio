@@ -1,0 +1,17 @@
+@if (portfolio$ | async; as portfolio) {
+  <h1 class="portfolio-title">Portfel: {{ portfolio.name }}</h1>
+
+  @if (positions$ | async; as positions) {
+    <app-portfolio-positions-section
+      [positions]="positions"
+      (addPositionEvent)="addPosition($event)"
+      (editPositionEvent)="editPosition($event)"
+      (addTransactionEvent)="addTransaction($event)"
+      (removePositionEvent)="removePosition($event)">
+    </app-portfolio-positions-section>
+  }
+} @else {
+  <div class="loading-placeholder">
+    Ładowanie portfela...
+  </div>
+}
