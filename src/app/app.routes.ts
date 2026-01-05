@@ -1,8 +1,10 @@
 import {Routes} from '@angular/router';
-import {PortfolioListComponent} from './features/portfolio/portfolio-list-component/portfolio-list-component';
-import {PortfolioDetailComponent} from './features/portfolio/portfolio-details-component/portfolio-detail-component';
+import {PortfolioListPageComponent} from './features/portfolio/portfolio-list-page-component/portfolio-list-page-component';
 import {SettingsComponent} from './features/settings/settings-component/settings-component';
 import {StatisticsComponent} from './features/statistics/statistics-component/statistics-component';
+import {
+  PortfolioDetailPage
+} from './features/portfolio/portfolio-details-page-component/portfolio-detail-page-component';
 
 export const routes: Routes = [
   {
@@ -12,12 +14,12 @@ export const routes: Routes = [
   },
   {
     path: "portfolio",
-    component: PortfolioListComponent,
+    component: PortfolioListPageComponent,
     title: "Portfel",
   },
   {
     path: "portfolio/:id",
-    component: PortfolioDetailComponent
+    component: PortfolioDetailPage
   },
   {
     path: "settings",

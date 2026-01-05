@@ -1,0 +1,92 @@
+<div class="buttons">
+  <button class="button buy-button" (click)="openAddModal()">Nowa pozycja</button>
+</div>
+<table class="portfolio-table">
+  <thead>
+  <tr>
+    <th>Symbol</th>
+    <th>Wolumen</th>
+    <th>Średnia cena zakupu</th>
+    <th>Wartość zakupu</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (position of positions; track position.id) {
+      <tr class="position-row" (click)="toggleRow(position.id)">
+        <td data-label="Symbol">
+          <span>{{ position.symbol }}</span>
+        </td>
+        <td data-label="Wolumen">
+          <span>{{ position.quantity }}</span>
+        </td>
+        <td data-label="Średnia cena zakupu">
+          <span>{{ position.averagePrice | number:'1.2-2' }} <small>{{ position.currency }}</small>
+          </span>
+        </td>
+        <td data-label="Wartość zakupu">
+          <span>{{ position.averagePrice * position.quantity | number:'1.2-2' }}
+            <small>{{ position.currency }}</small>
+          </span>
+        </td>
+        <td>
+          <button class="popup-toggle" (click)="togglePopup(position.id); $event.stopPropagation()">
+            <fa-icon
+              [icon]="faChevronDown"
+              [class.expanded]="isRowExpanded(position.id)">
+            </fa-icon>
+          </button>
+          @if (isPopupOpen(position.id)) {
+            <app-popup-component
+              (editEvent)="openEditModal(position)"
+              (addTransactionEvent)="handleAddTransaction(position)"
+              (removePositionEvent)="handleRemovePosition(position)">
+            </app-popup-component>
+          }
+        </td>
+      </tr>
+      <!-- rozwinięta tabela z transakcjami -->
+      <tr class="transactions-row" [class.expanded]="isRowExpanded(position.id)">
+        <td colspan="5" class="transactions-cell">
+          <div class="transactions-wrapper">
+            <table class="transactions-table">
+              <thead>
+              <tr>
+                <th>Typ</th>
+                <th>Ilość</th>
+                <th>Cena</th>
+                <th>Data</th>
+              </tr>
+              </thead>
+              <tbody>
+              @for (transaction of getTransactions(position); track transaction.id) {
+                <tr>
+                  <td>{{ transaction.type }}</td>
+                  <td>{{ transaction.quantity }}</td>
+                  <td>{{ transaction.price | number:'1.2-2' }}</td>
+                  <td>{{ transaction.date | date:'short' }}</td>
+                </tr>
+              }
+              </tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+@if (isAddModalOpen()) {
+  <app-add-position-modal
+    (cancel)="closeAddModal()"
+    (positionSubmitted)="handleAddPosition($event)">
+  </app-add-position-modal>
+}
+
+@if (isEditModalOpen() && selectedPositionForEdit()) {
+  <app-edit-position-modal
+    [position]="selectedPositionForEdit()!"
+    (cancel)="closeEditModal()"
+    (positionEdited)="handleEditPosition($event)">
+  </app-edit-position-modal>
+}
