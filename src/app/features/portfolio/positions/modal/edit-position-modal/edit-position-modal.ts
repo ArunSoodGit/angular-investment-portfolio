@@ -26,7 +26,6 @@ export class EditPositionModal implements OnChanges{
   });
 
   ngOnChanges() {
-    console.log(this.position);
     if (this.position) {
       this.form.patchValue({
         symbol: this.position.symbol,
