@@ -6,7 +6,7 @@ import {Portfolio} from '../../models/Portfolio';
 @Injectable({
   providedIn: 'root'
 })
-export class InMemoryPortfoliosService implements InMemoryDbService {
+export class InMemoryDatabaseService implements InMemoryDbService {
   createDb() {
     const portfolios: Portfolio[] = [
       {id: 1, name: 'XTB', totalAmount: 12000, profit: 289.97, currency: "USD"},

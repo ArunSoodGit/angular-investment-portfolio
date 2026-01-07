@@ -3,7 +3,7 @@ import {provideRouter} from '@angular/router';
 
 import {routes} from './app.routes';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {InMemoryPortfoliosService} from './core/services/api/in-memory-portfolios.service';
+import {InMemoryDatabaseService} from './core/services/api/in-memory-database.service';
 import {provideAnimations} from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
@@ -11,7 +11,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryPortfoliosService, {
+      InMemoryDatabaseService, {
         delay: 100,
         dataEncapsulation: false
       })),
