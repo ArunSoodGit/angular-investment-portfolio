@@ -23,11 +23,13 @@ export const routes: Routes = [
   },
   {
     path: "settings",
-    component: SettingsComponent
+    component: SettingsComponent,
+    title: "Ustawienia",
   },
   {
     path: "statistics",
-    component: StatisticsComponent
+    component: StatisticsComponent,
+    title: "Statystyki",
   },
   {
     path: "**",
